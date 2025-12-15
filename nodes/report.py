@@ -22,8 +22,8 @@ def pdf_node(state:AgentState) -> None:
 
     #Body
     pdf.set_font("Arial", size=12)
-    # multi_cell handles text wrapping automatically
-    # encode/decode helps strip non-latin characters that crash basic FPDF
+    # multi_cell to handle text wrapping automatically
+    # encode/decode to strip non-latin characters avoiding basic FPDF crash
     safe_text = report_text.encode('latin-1', 'replace').decode('latin-1')
     pdf.multi_cell(0, 10, txt=safe_text)
     

@@ -1,4 +1,4 @@
-from langchain_community.tools.tavily_search import TavilySearchResults
+from langchain_tavily import TavilySearch
 from core.state import AgentState
 
 def research_node(state: AgentState):
@@ -7,11 +7,12 @@ def research_node(state: AgentState):
     """
 
     #initalize tavily ssearch
-    tool = TavilySearchResults(max_results=5)
+    tool = TavilySearch(max_results=5)
     search_results = tool.invoke(state['topic'])
 
-
+    print(search_results['results'])
+    print(type(search_results))
     #format results into a string
-    raw_content = "\n".join([res['content'] for res in search_results])
+    raw_content = "\n".join([res['content'] for res in search_results['results']])
 
     return {"search_data": raw_content}

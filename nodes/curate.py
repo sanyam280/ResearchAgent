@@ -5,9 +5,9 @@ def curate_node(state: AgentState):
     """
     Uses Gemini llm to read the search data and write a polished report
     """
-    print("#____# I am LLM and I am analyzing data and writing report")
+    print("#____# I am LLM and I am analyzing data and writing report, please keep up with me :) ....")
 
-    llm = ChatGoogleGenerativeAI(model = "gemini-1.5-pro", temperature = 0)
+    llm = ChatGoogleGenerativeAI(model = "gemini-2.5-flash", temperature = 0)
 
     prompt = f"""
     You are a professional research assistant. 
@@ -22,4 +22,4 @@ def curate_node(state: AgentState):
     """
 
     response = llm.invoke(prompt)
-    return {"final report": response.content}
+    return {"final_report": response.content}
