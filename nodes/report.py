@@ -1,5 +1,6 @@
 from fpdf import FPDF
 from core.state import AgentState
+import os
 
 def pdf_node(state:AgentState) -> None:
     """
@@ -9,7 +10,8 @@ def pdf_node(state:AgentState) -> None:
     print("Generating PDF....")
     
     report_text = state['final_report']
-    filename = f"{state['topic'].replace(' ', '_')}_Report.pdf"
+    os.makedirs("reports", exist_ok=True)
+    filename = f"reports/{state['topic'].replace(' ', '_')}_Report.pdf"
 
     pdf = FPDF()
     pdf.add_page()
