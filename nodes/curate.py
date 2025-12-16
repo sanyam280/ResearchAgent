@@ -7,7 +7,7 @@ def curate_node(state: AgentState):
     """
     Uses Gemini llm to read the search data and write a polished report
     """
-    with console.status(f"⚙️I am analyzing data and preparing report, Keep Up!!",spinner="dots"):
+    with console.status(f"⚙️I am analyzing data and preparing report, Keep Up for Few Seconds!!",spinner="dots"):
 
         llm = ChatGoogleGenerativeAI(model = "gemini-2.5-flash", temperature = 0)
 
